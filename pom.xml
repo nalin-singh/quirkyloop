@@ -5,24 +5,35 @@
 
   <groupId>com.craftic</groupId>
   <artifactId>understand-maven</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
 
   <name>understand-maven</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <description>A demo for deployment to the Central Repository</description>
+  <url>https://github.com/nalin-singh/understanding-maven</url>
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Nalin Singh</name>
+      <email>hellocraftic@gmail.com</email>
+      <organization>Craftic</organization>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com:nalin-singh/understanding-maven.git</connection>
+    <developerConnection>scm:git:ssh://github.com:nalin-singh/understanding-maven.git</developerConnection>
+    <url>https://github.com/nalin-singh/understanding-maven</url>
+  </scm>
+
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
   </properties>
-
-  <distributionManagement>
-    <repository>
-      <id>remote-repo</id>
-      <name>Local Maven Repo</name>
-      <url>file:///Users/datademon/Developer/Java/remote-repo</url>
-    </repository>
-  </distributionManagement>
 
   <dependencyManagement>
     <dependencies>
@@ -32,6 +43,11 @@
         <version>5.11.0</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>0.7.0</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -64,36 +80,15 @@
               <goal>format</goal>
             </goals>
           </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>net.revelc.code.formatter</groupId>
-        <artifactId>formatter-maven-plugin</artifactId>
-        <version>2.26.0</version>
-        <executions>
           <execution>
-            <id>auto-format-on-clean</id>
-            <phase>clean</phase>
+            <id>validate-formatting</id>
+            <phase>verify</phase>
             <goals>
-              <goal>format</goal>
+              <goal>validate</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
-      <plugin>
-          <groupId>net.revelc.code.formatter</groupId>
-          <artifactId>formatter-maven-plugin</artifactId>
-          <version>2.26.0</version>
-          <executions>
-            <execution>
-              <id>validate-formatting</id>
-              <phase>verify</phase>
-              <goals>
-                <goal>validate</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
     </plugins>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
