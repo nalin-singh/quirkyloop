@@ -1,4 +1,4 @@
-package com.craftic;
+package io.github.nalin_singh;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Unit test for simple App.
  */
-public class AppTest {
+public class QuirkyLoopTest {
 
     /**
      * Rigorous Test :-)
